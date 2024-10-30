@@ -52,12 +52,9 @@ class ImageProcessor:
 
 if __name__ == "__main__":
 
-    file_paths = [
-        r"C:\Users\vijeth\Desktop\faroe_island_1.png",
-        r"C:\Users\vijeth\Desktop\faroe_island_2.jpg",
-        r"C:\Users\vijeth\Desktop\faroe_island_3.jpg"
-    ]
-    output_dir = r"C:\Users\vijeth\Desktop\test_res"
+    repo_root = os.getcwd()
+    image_dir = os.path.join(repo_root, 'image')
+    output_dir = os.path.join(repo_root, 'output_masks')
 
     processor = ImageProcessor(file_paths, output_dir)
     processor.process_images()
