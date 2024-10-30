@@ -6,10 +6,6 @@ This project utilizes OpenCV to read JPEG images from a specified directory, cre
 
 - [Features](#features)
 - [Requirements](#requirements)
-- [Setup Instructions](#setup-instructions)
-- [Usage](#usage)
-- [Output Directory](#output-directory)
-- [License](#license)
 
 ## Features
 
