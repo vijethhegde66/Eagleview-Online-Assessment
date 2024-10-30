@@ -9,8 +9,13 @@ logging.basicConfig(level=logging.INFO, format='%(message)s')
 
 class ImageProcessor:
     def __init__(self, file_paths, output_dir):
+        print(file_paths)
         ###################filtering outh the pnj file form jpg in the given folder##############
-        self.file_paths = [fp for fp in file_paths if fp.lower().endswith(".jpg")]  
+        self.file_paths = [
+        os.path.join(file_paths, filename) 
+        for filename in os.listdir(file_paths) 
+        if filename.lower().endswith(".jpg")
+        ]
         self.output_dir = output_dir
         os.makedirs(self.output_dir, exist_ok=True)
 
@@ -53,8 +58,10 @@ class ImageProcessor:
 if __name__ == "__main__":
 
     repo_root = os.getcwd()
-    image_dir = os.path.join(repo_root, 'image')
+    print(repo_root)
+    image_dir = os.path.join(repo_root, 'images')
+    print(image_dir)
     output_dir = os.path.join(repo_root, 'output_masks')
 
-    processor = ImageProcessor(file_paths, output_dir)
+    processor = ImageProcessor(image_dir, output_dir)
     processor.process_images()
